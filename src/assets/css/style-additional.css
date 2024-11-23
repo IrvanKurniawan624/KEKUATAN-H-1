@@ -1,0 +1,25 @@
+.content-container{
+    box-shadow: 0 0 10px 0 #E3E3E3FF;
+    border-radius: 9px;
+    margin-bottom: 2rem;
+    padding: 18px;
+}
+
+.logo-nav{
+    margin-left: -5px;
+    margin-top: -10px;
+}
+
+.h-400px{
+    height: 400px!important;
+}
+
+.swiper-button-prev{
+    left: 50px !important;
+    color: white!important;
+}
+
+.swiper-button-next{
+    right: 50px !important;
+    color: white!important;
+}
