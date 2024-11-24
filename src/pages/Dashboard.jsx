@@ -1,6 +1,7 @@
 import SwiperSection from "../components/SwiperSection";
 import Category from "../components/Category";
 import Product from "../components/Product";
+import Footer from "../components/Footer";
 
 const Dashboard = () => {
     return (
@@ -8,6 +9,7 @@ const Dashboard = () => {
             <SwiperSection/>
             <Category/>
             <Product/>
+            <Footer/>
         </div>
     )
 } 
