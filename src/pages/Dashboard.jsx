@@ -1,12 +1,13 @@
 import SwiperSection from "../components/SwiperSection";
+import Category from "../components/Category";
+import Product from "../components/Product";
 
 const Dashboard = () => {
     return (
         <div>
             <SwiperSection/>
-            <div className="category-section my-5">
-                <h2 className="font-bold text-black text-3xl">Kategori Produk</h2>
-            </div>
+            <Category/>
+            <Product/>
         </div>
     )
 } 

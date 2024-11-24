@@ -1,0 +1,33 @@
+[
+    {
+        "id" : 1,
+        "nama" : "Laptop",
+        "slug" : "laptop",
+        "img" : "Laptop.svg" 
+    },
+    {
+        "id" : 2,
+        "nama" : "Handphone",
+        "slug" : "handphone",
+        "img" : "Handphone.svg" 
+    },
+    {
+        "id" : 3,
+        "nama" : "Komputer",
+        "slug" : "komputer",
+        "img" : "Komputer.svg" 
+    },
+    {
+        "id" : 4,
+        "nama" : "Aksesoris",
+        "slug" : "aksesoris",
+        "img" : "Aksesoris.svg" 
+    },
+    {
+        "id" : 5,
+        "nama" : "Keyboard & Mouse",
+        "slug" : "keyboard-mouse",
+        "img" : "KeyboardMouse.svg" 
+    }
+
+]

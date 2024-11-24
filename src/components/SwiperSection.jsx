@@ -21,13 +21,13 @@ const SwiperSection = () => {
             className="w-full"                  
             >
             <SwiperSlide className='w-full h-400px'>
-                <img src={Banner1} className='object-cover h-auto w-full' alt="Slide 1" />
+                <img src={Banner1} className='object-cover h-auto w-full' alt="Banner-1" />
             </SwiperSlide>
             <SwiperSlide className='w-full h-400px'>
-                <img src={Banner2} className='object-cover h-auto w-full' alt="Slide 2" />
+                <img src={Banner2} className='object-cover h-auto w-full' alt="Banner-2" />
             </SwiperSlide>
             <SwiperSlide className='w-full h-400px'>
-                <img src={Banner3} className='object-cover h-auto w-full' alt="Slide 3" />
+                <img src={Banner3} className='object-cover h-auto w-full' alt="Banner-3" />
             </SwiperSlide>
             </Swiper>
         </div>
