@@ -3,23 +3,24 @@ import DataProduct from "../assets/JSON/product.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faSearch } from "@fortawesome/free-solid-svg-icons";
 
-const Product = () => {
+const Product = ({Category_id = null}) => {
     
     const [searchInput, setSearchInput] = useState('');
     
     const handleSearchChange = (event) => {
         setSearchInput(event.target.value);
-        
     };
 
+    
     const filteredData = DataProduct.filter((product) => {
         const product_nama = product.nama || '';
         const product_keyword = product.keyword || '';
-        return (
-            product_nama.toLowerCase().includes(searchInput.toLowerCase()) ||
-            product_keyword.toLowerCase().includes(searchInput.toLowerCase())
-        );
+        const matchesSearchInput = product_nama.toLowerCase().includes(searchInput.toLowerCase()) ||product_keyword.toLowerCase().includes(searchInput.toLowerCase());
         
+        if (Category_id !== null) {
+            return matchesSearchInput && product.category_id === Category_id;
+        }
+        return matchesSearchInput;
     });
 
     function formatNumber(num) {
@@ -40,26 +41,32 @@ const Product = () => {
                     </div>
                 </div>
             </div>
-            <ul className="list-none grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 mt-7 gap-5 content-container">
-                {filteredData.map((Product, index) => (
-                    <li key={index}>
-                        <a href={`/product-details/${Product.slug}`} >
-                            <div className="flex flex-col justify-start align-middle gap-1 h-64">
-                                <div className="img-content w-full bg-white h-44">
-                                        <img src={`/images/product/${Product.img[0]}`} className="w-full h-full object-contain" alt={Product.slug + '1'} />
+            {filteredData.length === 0 ? (
+                <div className="content-container text-center font-semibold text-black mt-7">
+                    <h5>Produk Yang Kamu Cari, Tidak Ada !</h5>
+                </div>
+            ) : (
+                <ul className="list-none grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 mt-7 gap-5 content-container">
+                    {filteredData.map((Product, index) => (
+                        <li key={index}>
+                            <a href={`/product-details/${Product.slug}`} >
+                                <div className="flex flex-col justify-start align-middle gap-1 h-64">
+                                    <div className="img-content w-full bg-white h-44">
+                                            <img src={`/images/product/${Product.img[0]}`} className="w-full h-full object-contain" draggable="false" alt={Product.slug + '1'} />
+                                    </div>
+                                    <div className="product-info">
+                                        <h6 className="text-start text-sm text-black line-clamp-2 overflow-hidden">{Product.nama}</h6>
+                                        <h5 className="text-start text-base text-black font-semibold line-clamp-1 overflow-hidden">Rp{formatNumber(Product.price)}</h5>
+                                        <p className="text-xs text-gray-500">
+                                            <FontAwesomeIcon icon={faStar} className="text-yellow-400" /><span> | {Product.stars}.0</span>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className="product-info">
-                                    <h6 className="text-start text-sm text-black line-clamp-2 overflow-hidden">{Product.nama}</h6>
-                                    <h5 className="text-start text-base text-black font-semibold line-clamp-1 overflow-hidden">Rp{formatNumber(Product.price)}</h5>
-                                    <p className="text-xs text-gray-500">
-                                        <FontAwesomeIcon icon={faStar} className="text-yellow-400" /><span> | {Product.stars}.0</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                ) )}
-            </ul>
+                            </a>
+                        </li>
+                    ) )}
+                </ul>
+            )}
         </div>
     )
 }
